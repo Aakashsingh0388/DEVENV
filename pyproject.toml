@@ -3,7 +3,7 @@ requires = ["setuptools>=64", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "devenv"
+name = "smart-devenv"
 version = "2.1.0"
 description = "Production-grade CLI tool for automatic project environment setup, dependency installation, and DevOps automation"
 readme = "README.md"

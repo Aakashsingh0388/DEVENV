@@ -125,7 +125,7 @@ It automatically handles OS-specific issues such as:
 Install DevEnv from PyPI using pip.
 
 ```bash
-pip install devenv
+pip install smart-devenv
 ```
 
 Verify the installation.

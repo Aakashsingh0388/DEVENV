@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devenv"
+version = "2.1.0"
+description = "Production-grade CLI tool for automatic project environment setup, dependency installation, and DevOps automation"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "DEVENV Contributors"},
+]
+keywords = [
+    "cli",
+    "dependency",
+    "installer",
+    "devtools",
+    "automation",
+    "devops",
+    "environment",
+    "docker",
+    "monorepo",
+    "microservices",
+    "developer-experience",
+    "project-setup",
+    "service-detection",
+    "health-check",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: System :: Installation/Setup",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "typer[all]>=0.9.0",
+    "rich>=13.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/devenv-cli/devenv"
+Repository = "https://github.com/devenv-cli/devenv"
+Issues = "https://github.com/devenv-cli/devenv/issues"
+Documentation = "https://github.com/devenv-cli/devenv#readme"
+Changelog = "https://github.com/devenv-cli/devenv/releases"
+
+# This is the entry point that allows users to type `devenv`
+# from anywhere on their system after running `pip install devenv`.
+[project.scripts]
+devenv = "devenv.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["devenv*"]
+
+[tool.setuptools.package-data]
+devenv = ["py.typed"]
+
+# Development dependencies
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "mypy>=1.0.0",
+    "ruff>=0.1.0",
+]

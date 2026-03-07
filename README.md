@@ -1,0 +1,322 @@
+DevEnv – Automatic Development Environment Setup
+
+"PyPI" (https://img.shields.io/pypi/v/devenv)
+"Python" (https://img.shields.io/pypi/pyversions/devenv)
+"License" (https://img.shields.io/github/license/Aakashsingh0388/devenv)
+
+DevEnv is an intelligent CLI tool that automatically sets up development environments for your projects. It detects the project language, installs required runtimes, installs dependencies, and prepares the project to run — all with a single command.
+
+DevEnv is designed to eliminate the common “it works on my machine” problem and simplify onboarding for developers across Windows, macOS, and Linux.
+
+---
+
+🚀 Features
+
+- One-Command Environment Setup
+  Run "devenv setup" and DevEnv will configure your development environment automatically.
+
+- Smart Runtime Detection
+  Detects required runtimes such as Python, Node.js, and Go and installs them if they are missing.
+
+- Automatic Dependency Installation
+  Installs dependencies using the correct package manager automatically.
+
+- Cross-Platform Support
+  Works seamlessly across Windows, macOS, and Linux.
+
+- Intelligent Run Command Detection
+  Detects how to start the project and suggests the correct run command.
+
+- Developer Onboarding Simplified
+  New developers can clone a repository and start working in seconds.
+
+---
+
+📦 Installation
+
+Install DevEnv using pip:
+
+pip install devenv
+
+Verify installation:
+
+devenv --version
+
+---
+
+⚡ Quick Start
+
+Clone a repository and set up the development environment instantly.
+
+git clone https://github.com/example/project.git
+cd project
+
+devenv setup
+
+DevEnv will automatically:
+
+1. Detect project language
+2. Check required runtimes
+3. Install missing runtimes
+4. Install dependencies
+5. Apply OS compatibility fixes
+6. Suggest the correct run command
+
+---
+
+🧠 Supported Languages
+
+DevEnv automatically detects projects for:
+
+- Python
+- Node.js
+- Go
+
+Supported dependency files include:
+
+- "requirements.txt"
+- "pyproject.toml"
+- "package.json"
+- "go.mod"
+
+---
+
+🛠 Commands
+
+DevEnv provides several commands to manage and automate development environments.
+
+---
+
+devenv setup
+
+The primary command that fully prepares the development environment.
+
+Usage
+
+devenv setup [OPTIONS]
+
+Options
+
+Option| Description
+"-p", "--path"| Path to project directory
+"-n", "--dry-run"| Show actions without executing them
+"-y", "--yes"| Skip confirmation prompts
+
+Example 1 – Basic Setup
+
+cd my-project
+devenv setup
+
+Example 2 – Setup specific project folder
+
+devenv setup --path ./backend
+
+Example 3 – Dry run
+
+devenv setup --dry-run
+
+This will show what commands DevEnv would run without executing them.
+
+---
+
+devenv scan
+
+Scans the project directory and detects languages and dependency files.
+
+Usage
+
+devenv scan [OPTIONS]
+
+Options
+
+Option| Description
+"-p", "--path"| Project directory
+"-d", "--depth"| Scan depth for subdirectories
+
+Example
+
+devenv scan
+
+Example output:
+
+Detected Project
+
+Language: Python
+Dependency File: requirements.txt
+Package Manager: pip
+
+Scan a specific folder:
+
+devenv scan --path ./services
+
+---
+
+devenv install
+
+Installs project dependencies using the detected package manager.
+
+Usage
+
+devenv install [OPTIONS]
+
+Options
+
+Option| Description
+"-p", "--path"| Project directory
+"-n", "--dry-run"| Show install command only
+"-y", "--yes"| Skip confirmation
+
+Example – Python Project
+
+devenv install
+
+Equivalent to:
+
+pip install -r requirements.txt
+
+Example – Node.js Project
+
+devenv install
+
+Equivalent to:
+
+npm install
+
+---
+
+devenv run
+
+Detects and runs the appropriate development server command.
+
+Usage
+
+devenv run [OPTIONS]
+
+Options
+
+Option| Description
+"-p", "--path"| Project directory
+"-y", "--yes"| Automatically run the detected command
+
+Example – Run project
+
+devenv run
+
+Example detected commands:
+
+Project Type| Command
+Flask| "flask run"
+FastAPI| "uvicorn main:app"
+Node.js| "npm start"
+Next.js| "npm run dev"
+
+Example automatic run:
+
+devenv run --yes
+
+---
+
+devenv doctor
+
+Checks your system environment and verifies installed runtimes.
+
+Usage
+
+devenv doctor
+
+Example output:
+
+System Runtime Check
+
+Python   ✔ Installed (3.11)
+Node.js  ✔ Installed (20)
+Go       ✘ Not Installed
+
+This command helps ensure your machine is ready for development.
+
+---
+
+devenv info
+
+Displays detailed information about the detected project.
+
+Usage
+
+devenv info
+
+Example output:
+
+Project Information
+
+Language: Python
+Package Manager: pip
+Dependency File: requirements.txt
+Python Version: 3.11
+
+---
+
+devenv summary
+
+Provides a quick summary of the project configuration.
+
+Usage
+
+devenv summary
+
+Example output:
+
+Project Summary
+
+Language: Node.js
+Dependency File: package.json
+Dependencies: 52
+Package Manager: npm
+
+---
+
+🧑‍💻 Typical Developer Workflow
+
+Most developers will use DevEnv like this:
+
+pip install devenv
+
+git clone https://github.com/example/project.git
+cd project
+
+devenv setup
+
+devenv run
+
+Your development environment will be ready in seconds.
+
+---
+
+🌍 Cross Platform Support
+
+DevEnv works on:
+
+- Windows
+- macOS
+- Linux
+
+It automatically handles OS-specific configurations such as executable permissions and shell compatibility.
+
+---
+
+👨‍💻 Author
+
+Aakash Birendra Singh
+
+GitHub
+https://github.com/Aakashsingh0388
+
+LinkedIn
+https://www.linkedin.com/in/aakash-singh-7b8416318
+
+---
+
+⭐ Contributing
+
+Contributions, ideas, and improvements are welcome.
+
+If you find a bug or have a feature request, feel free to open an issue or submit a pull request.

@@ -29,5 +29,5 @@ Features:
 The package exposes a Typer-based CLI app via :pydata:`cli.app`.
 """
 
-__version__ = "2.1.0"
+__version__ = "2.1.1"
 __app_name__ = "devenv"

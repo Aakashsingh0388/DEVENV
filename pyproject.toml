@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "smart-devenv"
-version = "2.1.0"
+version = "2.1.1"
 description = "Production-grade CLI tool for automatic project environment setup, dependency installation, and DevOps automation"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.8"
 authors = [
-    {name = "DEVENV Contributors"},
+    {name = "Aakash Birendra Singh"},
 ]
 keywords = [
     "cli",
@@ -53,14 +53,14 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/devenv-cli/devenv"
-Repository = "https://github.com/devenv-cli/devenv"
-Issues = "https://github.com/devenv-cli/devenv/issues"
-Documentation = "https://github.com/devenv-cli/devenv#readme"
-Changelog = "https://github.com/devenv-cli/devenv/releases"
+Homepage = "https://github.com/Aakashsingh0388"
+Repository = "https://github.com/Aakashsingh0388"
+Issues = "https://github.com/Aakashsingh0388/issues"
+Documentation = "https://github.com/Aakashsingh0388#readme"
+Changelog = "https://github.com/Aakashsingh0388/releases"
 
 # This is the entry point that allows users to type `devenv`
-# from anywhere on their system after running `pip install devenv`.
+# from anywhere on their system after running `pip install smart-devenv`.
 [project.scripts]
 devenv = "devenv.cli:app"
 

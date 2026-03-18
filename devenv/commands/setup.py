@@ -206,12 +206,21 @@ def _setup_logic(
         console.print()  # visual spacing between stacks
 
     # ── Step 7: Fix cross-OS compatibility ────────────────────────
-    console.print("[bold cyan]Step 7: Fixing cross-OS compatibility...[/bold cyan]")
-    if os_info:
+    console.print("\n[bold cyan]Step 7: Fixing cross-OS compatibility...[/bold cyan]")
+    cross_os_needed = False
+    if os_info and os_info.os.value == "windows" and not os_info.is_wsl:
+        linux_indicators = ["dockerfile", "docker-compose.yml", "docker-compose.yaml",
+                           ".bashrc", ".zshrc", "Makefile", "makefile"]
+        for file_path in project_path.rglob("*"):
+            if file_path.name.lower() in linux_indicators:
+                cross_os_needed = True
+                break
+    
+    if cross_os_needed:
         fix_cross_os_compatibility(str(project_path), os_info)
-        console.print("[green]✓ Compatibility fixes applied[/green]\n")
+        console.print("[green]✓ Compatibility fixes applied[/green]")
     else:
-        console.print("[yellow]⚠ OS detection not available, skipping compatibility fixes[/yellow]\n")
+        console.print("[green]✓ No OS compatibility fixes required[/green]")
 
     # ── Step 8 & 9: Detect run command & Start development server ──
     console.print("[bold cyan]Step 8 & 9: Detecting run command & Starting project...[/bold cyan]")

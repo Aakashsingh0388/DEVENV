@@ -1,84 +1,80 @@
-# DevEnv
+# 🚀 DevEnv
 
 ### Automatic Development Environment Setup
 
 DevEnv is an intelligent **command-line interface (CLI)** tool that automatically prepares development environments for software projects.
 
-It detects the project language, installs required runtimes, installs dependencies, and prepares the project to run — all with a **single command**.
+It detects the project language, installs dependencies, configures the environment, and prepares the project to run — all with a **single command**.
 
-DevEnv helps eliminate the classic developer problem:
+DevEnv eliminates the classic developer problem:
 
 > “It works on my machine.”
 
-With DevEnv, developers can **clone a repository and start coding in seconds** without manually installing runtimes or dependencies.
+With DevEnv, developers can **clone a repository and start coding in seconds** — without manual setup.
 
 ---
 
-# Table of Contents
+# 📚 Table of Contents
 
 * Overview
 * Features
+* Demo
 * Installation
 * Quick Start
 * Supported Languages
 * Commands
-* CLI Usage
+* How It Works
 * Developer Workflow
 * Cross Platform Support
 * Why DevEnv
+* Roadmap
 * Contributing
 * License
 * Author
 
 ---
 
-# Overview
+# 🧠 Overview
 
-Modern projects often require multiple runtimes, dependencies, and environment configurations. Setting these up manually can be slow and error-prone.
+Modern projects often require multiple runtimes, dependencies, and environment configurations. Setting these up manually is time-consuming and error-prone.
 
-DevEnv solves this problem by automatically detecting project requirements and configuring the environment for you.
+DevEnv solves this by automatically detecting project requirements and configuring the environment for you.
 
-It supports multiple programming ecosystems and works across major operating systems.
-
-DevEnv is designed for:
+It is designed for:
 
 * Developers onboarding to new repositories
-* Teams that want consistent development environments
-* Open-source projects that want easier contributor setup
+* Teams needing consistent environments
+* Open-source projects improving contributor experience
 
 ---
 
-# Features
+# ✨ Features
 
-## One Command Setup
+## ⚡ One Command Setup
 
-Prepare the entire development environment using a single command.
+Prepare the entire development environment instantly:
 
 ```bash
 devenv setup
 ```
 
-DevEnv automatically detects the project and installs everything required.
-
 ---
 
-## Smart Runtime Detection
+## 🧠 Smart Runtime Detection
 
-DevEnv automatically detects required runtimes such as:
+Automatically detects required runtimes:
 
 * Python
 * Node.js
 * Go
 
-If a runtime is missing, DevEnv installs it automatically.
+If missing, DevEnv **guides or assists** in installing them.
 
 ---
 
-## Automatic Dependency Installation
+## 📦 Automatic Dependency Installation
 
-DevEnv detects dependency files and installs packages using the correct package manager.
-
-Examples:
+Detects dependency files and installs packages using the correct package manager.
 
 | Language | Dependency File  | Package Manager |
 | -------- | ---------------- | --------------- |
@@ -89,11 +85,9 @@ Examples:
 
 ---
 
-## Intelligent Project Execution
+## 🚀 Intelligent Project Execution
 
-DevEnv detects how a project should run and suggests the correct command.
-
-Examples:
+Automatically detects how to run your project.
 
 | Framework | Command          |
 | --------- | ---------------- |
@@ -104,31 +98,49 @@ Examples:
 
 ---
 
-## Cross Platform Support
+## 💻 Cross Platform Support
 
-DevEnv works on:
+Works seamlessly on:
 
 * Windows
 * macOS
 * Linux
 
-It automatically handles OS-specific issues such as:
+Handles OS-specific issues like:
 
-* executable permissions
-* shell compatibility
-* runtime installation differences
+* Permissions
+* Shell compatibility
+* Runtime differences
 
 ---
 
-# Installation
+# 🎬 Demo
 
-Install DevEnv from PyPI using pip.
+```bash
+devenv setup
+```
+
+Example output:
+
+```
+✔ Detected: Python project
+✔ Checking runtime...
+✔ Installing dependencies...
+✔ Environment ready
+✔ Suggested command: flask run
+```
+
+---
+
+# 📦 Installation
+
+Install from PyPI:
 
 ```bash
 pip install smart-devenv
 ```
 
-Verify the installation.
+Verify installation:
 
 ```bash
 devenv --version
@@ -136,9 +148,7 @@ devenv --version
 
 ---
 
-# Quick Start
-
-Clone a project and configure the environment instantly.
+# ⚡ Quick Start
 
 ```bash
 git clone https://github.com/example/project.git
@@ -147,28 +157,25 @@ cd project
 devenv setup
 ```
 
-DevEnv will automatically:
+DevEnv will:
 
-1. Detect the project language
-2. Check installed runtimes
-3. Install missing runtimes
-4. Install dependencies
-5. Apply OS compatibility fixes
-6. Suggest the correct run command
-
-Your project will be ready to run.
+1. Detect project language
+2. Check runtimes
+3. Install dependencies
+4. Fix compatibility issues
+5. Suggest run command
 
 ---
 
-# Supported Languages
+# 🌐 Supported Languages
 
-DevEnv currently supports automatic setup for:
+Currently supported:
 
 * Python
 * Node.js
 * Go
 
-Supported dependency files include:
+Supported files:
 
 ```
 requirements.txt
@@ -177,274 +184,163 @@ package.json
 go.mod
 ```
 
-More languages will be added in future releases.
-
 ---
 
-# Commands
+# 🛠 Commands
 
-DevEnv provides several commands to automate development environment setup.
-
----
-
-# devenv setup
-
-The main command that prepares the entire development environment.
-
-### Usage
+## devenv setup
 
 ```bash
 devenv setup [OPTIONS]
 ```
 
-### Options
-
-| Option        | Description                         |
-| ------------- | ----------------------------------- |
-| -p, --path    | Path to the project directory       |
-| -n, --dry-run | Show actions without executing them |
-| -y, --yes     | Skip confirmation prompts           |
-
-### Example
-
-```bash
-devenv setup
-```
-
-Setup a specific folder.
-
-```bash
-devenv setup --path ./backend
-```
-
-Preview actions without executing.
-
-```bash
-devenv setup --dry-run
-```
+| Option        | Description     |
+| ------------- | --------------- |
+| -p, --path    | Project path    |
+| -n, --dry-run | Preview actions |
+| -y, --yes     | Skip prompts    |
 
 ---
 
-# devenv scan
-
-Scans the project and detects language and dependency files.
-
-### Usage
+## devenv scan
 
 ```bash
 devenv scan
 ```
 
-Example output:
-
-```
-Detected Project
-
-Language: Python
-Dependency File: requirements.txt
-Package Manager: pip
-```
-
-Scan a specific directory.
-
-```bash
-devenv scan --path ./services
-```
+Detects project structure.
 
 ---
 
-# devenv install
-
-Installs project dependencies.
-
-### Usage
+## devenv install
 
 ```bash
 devenv install
 ```
 
-Examples:
-
-Python project
-
-```bash
-pip install -r requirements.txt
-```
-
-Node.js project
-
-```bash
-npm install
-```
-
-DevEnv automatically detects the correct package manager.
+Installs dependencies automatically.
 
 ---
 
-# devenv run
-
-Detects and runs the development server.
-
-### Usage
+## devenv run
 
 ```bash
 devenv run
 ```
 
-Automatically run detected command.
-
-```bash
-devenv run --yes
-```
-
-Example detected commands:
-
-| Project Type | Run Command      |
-| ------------ | ---------------- |
-| Flask        | flask run        |
-| FastAPI      | uvicorn main:app |
-| Node.js      | npm start        |
-| Next.js      | npm run dev      |
+Runs project using detected command.
 
 ---
 
-# devenv doctor
-
-Checks your system environment and verifies installed runtimes.
-
-### Usage
+## devenv doctor
 
 ```bash
 devenv doctor
 ```
 
-Example output:
-
-```
-System Runtime Check
-
-Python   Installed (3.11)
-Node.js  Installed (20)
-Go       Not Installed
-```
-
-This command helps ensure your machine is ready for development.
+Checks system environment.
 
 ---
 
-# devenv info
-
-Displays detailed information about the detected project.
-
-### Usage
+## devenv info
 
 ```bash
 devenv info
 ```
 
-Example output:
-
-```
-Project Information
-
-Language: Python
-Package Manager: pip
-Dependency File: requirements.txt
-Python Version: 3.11
-```
+Shows project details.
 
 ---
 
-# devenv summary
-
-Displays a quick project overview.
-
-### Usage
+## devenv summary
 
 ```bash
 devenv summary
 ```
 
-Example output:
-
-```
-Project Summary
-
-Language: Node.js
-Dependency File: package.json
-Dependencies: 52
-Package Manager: npm
-```
+Quick overview of project.
 
 ---
 
-# Typical Developer Workflow
+# ⚙️ How It Works
 
-Most developers will use DevEnv like this:
+DevEnv follows these steps:
+
+1. Scan project files
+2. Detect programming language
+3. Identify dependency files
+4. Select package manager
+5. Install dependencies
+6. Suggest or run project
+
+---
+
+# 🔄 Developer Workflow
 
 ```bash
-pip install devenv
+pip install smart-devenv
 
-git clone https://github.com/example/project.git
-cd project
+git clone <repo>
+cd <repo>
 
 devenv setup
 devenv run
 ```
 
-Your development environment will be ready in seconds.
-
 ---
 
-# Why DevEnv
-
-DevEnv solves common problems developers face when starting new projects.
+# 🤔 Why DevEnv
 
 ### Without DevEnv
 
-* Install runtimes manually
-* Install dependencies manually
-* Fix OS compatibility issues
-* Find correct run command
+* Manual runtime setup
+* Manual dependency installation
+* OS compatibility issues
+* Finding correct run command
 
 ### With DevEnv
 
-```
+```bash
 devenv setup
 ```
 
-Everything is configured automatically.
+Everything is ready automatically.
 
 ---
 
-# Contributing
+# 🗺 Roadmap
 
-Contributions are welcome.
-
-If you would like to improve DevEnv:
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Submit a pull request
-
-Bug reports and feature requests are also appreciated.
+* Java support
+* Docker integration
+* Virtual environment auto-setup
+* AI-based project analysis
 
 ---
 
-# License
+# 🤝 Contributing
 
-This project is licensed under the MIT License.
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a branch
+3. Commit changes
+4. Open a pull request
 
 ---
 
-# Author
+# 📄 License
+
+MIT License
+
+---
+
+# 👨‍💻 Author
 
 **Aakash Birendra Singh**
 
-GitHub
-[https://github.com/Aakashsingh0388](https://github.com/Aakashsingh0388)
+GitHub:
+(https://github.com/Aakashsingh0388)
 
-LinkedIn
-[https://www.linkedin.com/in/aakash-singh-7b8416318](https://www.linkedin.com/in/aakash-singh-7b8416318)
+LinkedIn:
+(https://www.linkedin.com/in/aakash-singh-7b8416318)
 

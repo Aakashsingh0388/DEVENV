@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: smart-devenv
-Version: 2.1.1
+Version: 2.1.2
 Summary: Production-grade CLI tool for automatic project environment setup, dependency installation, and DevOps automation
 Author: Aakash Birendra Singh
 License: MIT
